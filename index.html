@@ -9,6 +9,15 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #262526;
+            font-size: 16px;
+
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
@@ -35,6 +44,42 @@
             max-width: 500px;
         }
 
+        .result-number {
+            font-size: 4rem;
+            font-weight: 900;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .result-number span {
+            font-weight: 300;
+            font-size: 2.5rem;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        label {
+            margin-bottom: 5px;
+
+        }
+
+        input {
+            border-radius: 5px;
+            line-height: 32px;
+            border: 1px solid #d2d1d2;
+            width: 100%;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            background: #88b673;
+            color: white;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
         .d-flex {
             display: flex;
         }
@@ -51,12 +96,30 @@
             padding-right: 1.5rem;
         }
 
+        .mt-3 {
+            margin-top: 1.5rem;
+        }
+
         .mb-0 {
             margin-bottom: 0;
         }
 
         .mb-3 {
             margin-bottom: 1.5rem;
+        }
+
+        .mb-5 {
+            margin-bottom: 2.5rem;
+        }
+
+        .w-100 {
+            width: 100%;
+        }
+
+        .text-b {
+            font-weight: 700;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .tooltip-toggle {
@@ -110,6 +173,24 @@
             opacity: 1;
             transition: all 0.75s ease;
         }
+
+        @media only screen and (max-width: 992px) {
+            .d-column-sm {
+                flex-direction: column;
+            }
+
+            .pr-sm-0 {
+                padding-right: 0;
+            }
+
+            .result-container {
+                margin-top: 3.14rem;
+            }
+        }
+
+        .d-none {
+            display: none;
+        }
     </style>
 </head>
 
@@ -117,20 +198,20 @@
 </body>
 <div class="container">
     <h1>Calculate your company's <span>CO2 emissions for data procurment process</span></h1>
-    <p>Lorem ipsum ja ja lorem ipsum krnekineki lorem ipsum Lorem ipsum ja ja lorem ipsum krnekineki lorem ipsum Lorem
+    <p class="mb-5">Lorem ipsum ja ja lorem ipsum krnekineki lorem ipsum Lorem ipsum ja ja lorem ipsum krnekineki lorem ipsum Lorem
         ipsum ja ja lorem ipsum krnekineki lorem ipsum Lorem ipsum ja ja lorem ipsum krnekineki lorem ipsum</p>
-    <div class="d-flex">
+    <div class="d-flex d-column-sm">
         <form>
-            <p class="mb-0">Active GTINs</p>
+            <p class="mb-0 text-b">Active GTINs</p>
             <div class="d-flex mb-3">
-                <div class="pr-3">
+                <div class="pr-3 w-100">
                     <div class="d-flex justify-content-between">
                         <label>Nr. of active GTINs</label>
-                        <div class="tooltip-toggle"aria-label="one million emissions!"><span>i</span></div>
+                        <div class="tooltip-toggle" aria-label="one million emissions!"><span>i</span></div>
                     </div>
                     <input type="number" required>
                 </div>
-                <div class="pr-3">
+                <div class="w-100">
                     <div class="d-flex justify-content-between">
                         <label>Nr. of active GTINs</label>
                         <div class="tooltip"><span>i</span></div>
@@ -138,16 +219,16 @@
                     <input type="number" required>
                 </div>
             </div>
-            <p class="mb-0">Pitched GTINs</p>
+            <p class="mb-0 text-b">Pitched GTINs</p>
             <div class="d-flex mb-3">
-                <div class="pr-3">
+                <div class="pr-3 w-100">
                     <div class="d-flex justify-content-between">
                         <label>Nr. of active GTINs</label>
-                        <div class="tooltip-toggle"aria-label="one million emissions!"><span>i</span></div>
+                        <div class="tooltip-toggle" aria-label="one million emissions!"><span>i</span></div>
                     </div>
                     <input type="number" required>
                 </div>
-                <div class="pr-3">
+                <div class="w-100">
                     <div class="d-flex justify-content-between">
                         <label>Nr. of active GTINs</label>
                         <div class="tooltip"><span>i</span></div>
@@ -155,16 +236,16 @@
                     <input type="number" required>
                 </div>
             </div>
-            <p class="mb-0">New GTINs</p>
+            <p class="mb-0 text-b">New GTINs</p>
             <div class="d-flex mb-3">
-                <div class="pr-3">
+                <div class="pr-3 w-100">
                     <div class="d-flex justify-content-between">
                         <label>Nr. of active GTINs</label>
-                        <div class="tooltip-toggle"aria-label="one million emissions!"><span>i</span></div>
+                        <div class="tooltip-toggle" aria-label="one million emissions!"><span>i</span></div>
                     </div>
                     <input type="number" required>
                 </div>
-                <div class="pr-3">
+                <div class="w-100">
                     <div class="d-flex justify-content-between">
                         <label>Nr. of active GTINs</label>
                         <div class="tooltip"><span>i</span></div>
@@ -172,14 +253,30 @@
                     <input type="number" required>
                 </div>
             </div>
-            <button>Calculate</button>
+            <a class="btn w-100 mt-3" href="#" onclick="calculate(); return false;">Calculate</a>
         </form>
         <div class="result-container">
-            <p class="justify-content-around">Based on the number of GTINs and number of procesess, we will show the
+            <p id="pre-calc" class="justify-content-around">Based on the number of GTINs and number of procesess,
+                we
+                will show the
                 company's calculated CO2 carbon
                 footprint here.</p>
+            <div id="post-calc" class="justify-content-around d-none">
+                <p class="text-b">Your companys carbon footprint is:</p>
+                <p class="result-number">2375 t <span>CO2 / Anually</span></p>
+                <p class="text-b">what does this mean?</p>
+                <p>Lorem ipsum ja ja lorem ipsum krnekineki lorem ipsum Lorem ipsum ja ja lorem ipsum krnekineki lorem
+                    ipsum Lorem ipsum ja ja lorem ipsum krnekineki lorem ipsum Lorem ipsum ja ja lorem ipsum krnekineki
+                    lorem ipsumLorem ipsum ja ja lorem ipsum krnekineki lorem ipsumLorem ipsum ja ja lorem ipsum
+                    krnekineki lorem ipsum</p>
+            </div>
         </div>
     </div>
 </div>
-
+<script>
+    function calculate() {
+        document.getElementById("pre-calc").style.display = "none";
+        document.getElementById("post-calc").style.display = "block";
+    }
+</script>
 </html>
