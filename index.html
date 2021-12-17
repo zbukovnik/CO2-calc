@@ -70,6 +70,12 @@
             border: 1px solid #d2d1d2;
             width: 100%;
         }
+        .info {
+            background: url("imgs/info.png") center center;
+            background-size: contain;
+            width: 1em;
+            height: 1em;
+        }
 
         .btn {
             display: block;
@@ -206,51 +212,51 @@
             <div class="d-flex mb-3">
                 <div class="pr-3 w-100">
                     <div class="d-flex justify-content-between">
-                        <label>Nr. of active GTINs</label>
-                        <div class="tooltip-toggle" aria-label="one million emissions!"><span>i</span></div>
+                        <label for="aGtin">Nr. of active GTINs</label>
+                        <div class="tooltip-toggle" aria-label="one million emissions!"><div class="info"></div></div>
                     </div>
-                    <input type="number" required>
+                    <input min="0" id="aGtin" type="number" required>
                 </div>
                 <div class="w-100">
                     <div class="d-flex justify-content-between">
-                        <label>Nr. of active GTINs</label>
-                        <div class="tooltip"><span>i</span></div>
+                        <label for="aProcesses">Number of processes</label>
+                        <div class="tooltip"><div class="info"></div></div>
                     </div>
-                    <input type="number" required>
+                    <input min="0" id="aProcesses" type="number" required>
                 </div>
             </div>
             <p class="mb-0 text-b">Pitched GTINs</p>
             <div class="d-flex mb-3">
                 <div class="pr-3 w-100">
                     <div class="d-flex justify-content-between">
-                        <label>Nr. of active GTINs</label>
-                        <div class="tooltip-toggle" aria-label="one million emissions!"><span>i</span></div>
+                        <label for="pGtin">Nr. of active GTINs</label>
+                        <div class="tooltip-toggle" aria-label="one million emissions!"><div class="info"></div></div>
                     </div>
-                    <input type="number" required>
+                    <input min="0" id="pGtin" type="number" required>
                 </div>
                 <div class="w-100">
                     <div class="d-flex justify-content-between">
-                        <label>Nr. of active GTINs</label>
-                        <div class="tooltip"><span>i</span></div>
+                        <label for="pProcesses">Number of processes</label>
+                        <div class="tooltip"><div class="info"></div></div>
                     </div>
-                    <input type="number" required>
+                    <input min="0" id="pProcesses" type="number" required>
                 </div>
             </div>
             <p class="mb-0 text-b">New GTINs</p>
             <div class="d-flex mb-3">
                 <div class="pr-3 w-100">
                     <div class="d-flex justify-content-between">
-                        <label>Nr. of active GTINs</label>
-                        <div class="tooltip-toggle" aria-label="one million emissions!"><span>i</span></div>
+                        <label for="nGtins">Nr. of new GTINs</label>
+                        <div class="tooltip-toggle" aria-label="one million emissions!"><div class="info"></div></div>
                     </div>
-                    <input type="number" required>
+                    <input min="0" id="nGtins" type="number" required>
                 </div>
                 <div class="w-100">
                     <div class="d-flex justify-content-between">
-                        <label>Nr. of active GTINs</label>
-                        <div class="tooltip"><span>i</span></div>
+                        <label for="nProcesses">Number of processes</label>
+                        <div class="tooltip"><div class="info"></div></div>
                     </div>
-                    <input type="number" required>
+                    <input min="0" id="nProcesses" type="number" required>
                 </div>
             </div>
             <a class="btn w-100 mt-3" href="#" onclick="calculate(); return false;">Calculate</a>
@@ -263,7 +269,7 @@
                 footprint here.</p>
             <div id="post-calc" class="justify-content-around d-none">
                 <p class="text-b">Your companys carbon footprint is:</p>
-                <p class="result-number">2375 t <span>CO2 / Anually</span></p>
+                <p class="result-number" id="result-number">2375 t<span> CO2 Annually</span></p>
                 <p class="text-b">what does this mean?</p>
                 <p>Lorem ipsum ja ja lorem ipsum krnekineki lorem ipsum Lorem ipsum ja ja lorem ipsum krnekineki lorem
                     ipsum Lorem ipsum ja ja lorem ipsum krnekineki lorem ipsum Lorem ipsum ja ja lorem ipsum krnekineki
@@ -275,6 +281,24 @@
 </div>
 <script>
     function calculate() {
+        const co2PerProcess = 50; // grams
+
+        let aGtin = document.getElementById('aGtin').value;
+        let aProcesses = document.getElementById('aProcesses').value;
+        let pGtin = document.getElementById('pGtin').value;
+        let pProcesses = document.getElementById('pProcesses').value;
+        let nGtins = document.getElementById('nGtins').value;
+        let nProcesses = document.getElementById('nProcesses').value;
+
+        let result = (aGtin * aProcesses + co2PerProcess) +
+            (pGtin * pProcesses + co2PerProcess) +
+            (nGtins * nProcesses + co2PerProcess);
+
+        // from grams to tones
+        result /= 1000000;
+
+        document.getElementById("result-number").innerText = result + " t";
+
         document.getElementById("pre-calc").style.display = "none";
         document.getElementById("post-calc").style.display = "block";
     }
