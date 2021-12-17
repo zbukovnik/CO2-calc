@@ -1,0 +1,185 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 1200px;
+            border: 10px solid gray;
+            border-radius: 50px;
+            padding: 50px;
+        }
+
+        .container>h1 span {
+            color: green;
+        }
+
+        .result-container {
+            align-items: center;
+            min-height: 300px;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .result-container p {
+            max-width: 500px;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .justify-content-between {
+            justify-content: space-between;
+        }
+
+        .justify-content-around {
+            justify-content: space-around;
+        }
+
+        .pr-3 {
+            padding-right: 1.5rem;
+        }
+
+        .mb-0 {
+            margin-bottom: 0;
+        }
+
+        .mb-3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .tooltip-toggle {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tooltip-toggle::before {
+            position: absolute;
+            top: -80px;
+            left: -80px;
+            background-color: #2B222A;
+            border-radius: 5px;
+            color: #fff;
+            content: attr(aria-label);
+            padding: 1rem;
+            text-transform: none;
+            transition: all 0.5s ease;
+            width: 160px;
+        }
+
+        .tooltip-toggle::after {
+            position: absolute;
+            top: -12px;
+            left: 9px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #2B222A;
+            content: " ";
+            font-size: 0;
+            line-height: 0;
+            margin-left: -5px;
+            width: 0;
+        }
+
+        .tooltip-toggle::before,
+        .tooltip-toggle::after {
+            color: #efefef;
+            font-family: monospace;
+            font-size: 16px;
+            opacity: 0;
+            pointer-events: none;
+            text-align: center;
+        }
+
+
+        .tooltip-toggle:focus::before,
+        .tooltip-toggle:focus::after,
+        .tooltip-toggle:hover::before,
+        .tooltip-toggle:hover::after {
+            opacity: 1;
+            transition: all 0.75s ease;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<div class="container">
+    <h1>Calculate your company's <span>CO2 emissions for data procurment process</span></h1>
+    <p>Lorem ipsum ja ja lorem ipsum krnekineki lorem ipsum Lorem ipsum ja ja lorem ipsum krnekineki lorem ipsum Lorem
+        ipsum ja ja lorem ipsum krnekineki lorem ipsum Lorem ipsum ja ja lorem ipsum krnekineki lorem ipsum</p>
+    <div class="d-flex">
+        <form>
+            <p class="mb-0">Active GTINs</p>
+            <div class="d-flex mb-3">
+                <div class="pr-3">
+                    <div class="d-flex justify-content-between">
+                        <label>Nr. of active GTINs</label>
+                        <div class="tooltip-toggle"aria-label="one million emissions!"><span>i</span></div>
+                    </div>
+                    <input type="number" required>
+                </div>
+                <div class="pr-3">
+                    <div class="d-flex justify-content-between">
+                        <label>Nr. of active GTINs</label>
+                        <div class="tooltip"><span>i</span></div>
+                    </div>
+                    <input type="number" required>
+                </div>
+            </div>
+            <p class="mb-0">Pitched GTINs</p>
+            <div class="d-flex mb-3">
+                <div class="pr-3">
+                    <div class="d-flex justify-content-between">
+                        <label>Nr. of active GTINs</label>
+                        <div class="tooltip-toggle"aria-label="one million emissions!"><span>i</span></div>
+                    </div>
+                    <input type="number" required>
+                </div>
+                <div class="pr-3">
+                    <div class="d-flex justify-content-between">
+                        <label>Nr. of active GTINs</label>
+                        <div class="tooltip"><span>i</span></div>
+                    </div>
+                    <input type="number" required>
+                </div>
+            </div>
+            <p class="mb-0">New GTINs</p>
+            <div class="d-flex mb-3">
+                <div class="pr-3">
+                    <div class="d-flex justify-content-between">
+                        <label>Nr. of active GTINs</label>
+                        <div class="tooltip-toggle"aria-label="one million emissions!"><span>i</span></div>
+                    </div>
+                    <input type="number" required>
+                </div>
+                <div class="pr-3">
+                    <div class="d-flex justify-content-between">
+                        <label>Nr. of active GTINs</label>
+                        <div class="tooltip"><span>i</span></div>
+                    </div>
+                    <input type="number" required>
+                </div>
+            </div>
+            <button>Calculate</button>
+        </form>
+        <div class="result-container">
+            <p class="justify-content-around">Based on the number of GTINs and number of procesess, we will show the
+                company's calculated CO2 carbon
+                footprint here.</p>
+        </div>
+    </div>
+</div>
+
+</html>
